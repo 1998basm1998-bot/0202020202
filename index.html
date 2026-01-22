@@ -15,16 +15,26 @@
 
         <div id="cust-login" class="card glass center-text mt-2 gsap-target">
             <h2>👤 كشف الحساب</h2>
-            <p>أدخل كلمة المرور لعرض ديونك</p>
-            <input type="password" id="custPassInput" placeholder="كلمة المرور" class="gsap-input">
+            <p>أدخل رمزك الخاص (3 أرقام)</p>
+            <input type="tel" id="custPassInput" placeholder="XXX" maxlength="10" class="gsap-input" style="text-align:center; letter-spacing: 5px; font-weight: bold; font-size: 1.5rem;">
             
             <div class="flex center-flex mb-2" style="justify-content: center;">
                 <input type="checkbox" id="rememberMe" style="width: auto; margin: 0 0 0 10px;">
                 <label for="rememberMe" style="cursor: pointer;">حفظ دخولي وتثبيت التطبيق</label>
             </div>
 
-            <button class="btn btn-success full-width gsap-btn" onclick="verifyCustomer()">دخول</button>
+            <button class="btn btn-success full-width gsap-btn" onclick="checkCustomerCode()">دخول</button>
             <p id="msg" style="color:salmon;"></p>
+        </div>
+
+        <div id="confirm-identity" class="card glass center-text mt-2 hidden">
+            <h3>مرحباً 👋</h3>
+            <p>هل اسمك هو:</p>
+            <h2 id="confirmName" style="color: var(--primary);">...</h2>
+            <div class="flex flex-between mt-2">
+                <button class="btn btn-danger full-width" onclick="location.reload()">لا، ليس أنا</button>
+                <button class="btn btn-success full-width" onclick="confirmAndLogin()">نعم، دخول</button>
+            </div>
         </div>
 
         <div id="cust-view" class="hidden">
